@@ -1,0 +1,6 @@
+USERNAME='test'
+PASSWORD='oauth:password'
+CHANNELS="channel1, channel2"
+SERVER1='twitch_channel_1'
+SERVER2='twitch_channel_2'
+MODERS="['moder_1', 'moder_2']"
