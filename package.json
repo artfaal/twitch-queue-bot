@@ -1,0 +1,32 @@
+{
+  "name": "twitch-queue-bot",
+  "version": "1.0.0",
+  "description": "Simple bot for manage queue via twitch chat for play with followers",
+  "main": "bot.js",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "tmi.js": "^1.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artfaal/twitch-queue-bot.git"
+  },
+  "keywords": [
+    "twitch",
+    "bot",
+    "tmi.js",
+    "queue",
+    "twitch",
+    "bot"
+  ],
+  "author": "Artfaal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artfaal/twitch-queue-bot/issues"
+  },
+  "homepage": "https://github.com/artfaal/twitch-queue-bot#readme"
+}
