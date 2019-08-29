@@ -49,12 +49,12 @@ const chat_log = 'chat.txt';
 const sys_log = 'commands.txt';
 
 
-var vote_comm = ['!Лапа', '!лапа'];
-var rm_vote_comm = ['!хвост', '!Хвост'];
-var list_comm = ['!лапы', 'Лапы', 'лапы'];
+var vote_comm = '!лапа';
+var rm_vote_comm = '!хвост';
+var list_comm = '!лапы';
 var mod_add_comm = '!ЛАПА';
 var mod_rm_comm = '!ХВОСТ';
-var mod_rm_list = ['!очистить', 'очистить', 'Очистить  очередь', 'чос', 'Чос'];
+var mod_rm_list = '!очистить';
 var mod_begin_time = '!сбор';
 var mod_begin_time_now = '!можно';
 
@@ -77,7 +77,7 @@ function onMessageHandler (target, context, msg, self) {
 
   // If the command is known, let's execute it
   // Добавление в очередь
-  if (vote_comm.includes(commandName)) {
+  if (vote_comm === commandName) {
     if (allow_interval(hour_start, minute_start)) { // Проверка допустимого интервала времени
       add_q(target, name);
       write_to_file(name, commandName, sys_log);
@@ -85,11 +85,11 @@ function onMessageHandler (target, context, msg, self) {
       client.say(target, `В очередь можно записываться с ${hour_start}:${minute_start} по МСК`)
     }
   // Удаление из очереди
-  } else if (rm_vote_comm.includes(commandName)) {
+  } else if (rm_vote_comm === commandName) {
     rm_q(target, name);
     write_to_file(name, commandName, sys_log);
   // Вывод списка очереди
-  } else if (list_comm.includes(commandName)) {
+  } else if (list_comm === commandName) {
     if (isEmpty(q)) {
       client.say(target, "Очередь пуста")
     } else {
@@ -112,7 +112,7 @@ function onMessageHandler (target, context, msg, self) {
       client.say(target, 'У тебя нет прав модератора');
     };
   // Очистка списка
-  } else if (mod_rm_list.includes(commandName)) {
+  } else if (commandName === mod_rm_list) {
       if (moders.includes(name)) {
         q = [];
         client.say(target, 'Очередь очищена');
@@ -120,9 +120,8 @@ function onMessageHandler (target, context, msg, self) {
       } else {
         client.say(target, 'У тебя нет прав модератора');
       }
-
-    // СБОР СЕЙЧАС
-  } else if (mod_begin_time_now.includes(commandName)) {
+  // СБОР СЕЙЧАС
+  } else if (mod_begin_time_now === commandName) {
     if (moders.includes(name)) {
       hour_start = 00;
       minute_start = 00;
